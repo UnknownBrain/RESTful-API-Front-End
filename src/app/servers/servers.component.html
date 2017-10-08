@@ -1,0 +1,10 @@
+<div class="form-group row">
+    <button class="btn btn-primary col-2 col-form-label" (click)="onLoadData()"> List Users</button>
+    <button class="btn btn-primary col-2 col-form-label" (click)="onAddUser()"> Add User</button>
+</div>
+<hr>
+<div class="container">
+    <app-listusers *ngIf="view.getViewModel() == 1" [users]="results"></app-listusers>
+    <app-adduser *ngIf="view.getViewModel() == 2"></app-adduser>
+    <app-updateuser *ngIf="view.getViewModel() == 3"></app-updateuser>
+</div>

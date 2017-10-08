@@ -1,0 +1,36 @@
+<form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" id="txtFirstName" placeholder="Your First Name..." #txtFirstName>
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" id="txtLastName" placeholder="Your Last Name..." #txtLastName>
+      </div>
+    </div>
+    <div class="form-group col-md-12">
+      <input type="text" class="form-control" id="txtEmail" placeholder="Your Email..." #txtEmail>
+    </div>
+    <div class="form-group col-md-12">
+      <input type="text" class="form-control" id="txtSummary" placeholder="Your Summary..." #txtSummary>
+    </div>
+    <div class="form-group col-md-12">
+        <input type="text" class="form-control" id="txtDescription" placeholder="Your Description..." #txtDescription>
+    </div>
+    <div class="form-group col-md-12">
+        <button type="submit" [disabled]="submitted" class="btn btn-default" (click)="onAddUser({FirstName: txtFirstName.value, LastName: txtLastName.value, Email: txtEmail.value, Summary: txtSummary.value, Description: txtDescription.value})">Add User</button>
+    </div>
+</form>
+
+<div>
+  <div class="form-row" id="successAlert" *ngIf="alertPointer == 1">
+    <div class="form-group col-md-12 alert alert-success">
+      <strong>Success!</strong> User added successfully!
+    </div>
+  </div>
+
+  <div class="form-row" id="errorAlert" *ngIf="alertPointer == 2">
+      <div class="form-group col-md-12 alert alert-danger">
+        <strong>Error!</strong> Something went wrong!
+      </div>
+    </div>
+</div>

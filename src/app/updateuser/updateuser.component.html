@@ -1,0 +1,39 @@
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" id="txtFirstName" placeholder="Your First Name..." value = "{{dbContext.getUserData().FirstName}}" #txtFirstName>
+    </div>
+    <div class="form-group col-md-6">
+      <input type="text" class="form-control" id="txtLastName" placeholder="Your Last Name..." value = "{{dbContext.getUserData().LastName}}" #txtLastName>
+    </div>
+  </div>
+  <div class="form-group col-md-12">
+    <input type="text" class="form-control" id="txtEmail" placeholder="Your Email..." value = "{{dbContext.getUserData().Email}}" #txtEmail>
+  </div>
+  <div class="form-group col-md-12">
+    <input type="text" class="form-control" id="txtSummary" placeholder="Your Summary..." value = "{{dbContext.getUserData().Summary}}" #txtSummary>
+  </div>
+  <div class="form-group col-md-12">
+      <input type="text" class="form-control" id="txtDescription" placeholder="Your Description..." value = "{{dbContext.getUserData().Description}}" #txtDescription>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <button type="submit" class="btn btn-default" [disabled]="submitted" (click)="onUpdateUser({StudentId: dbContext.getUserData().StudentId, FirstName: txtFirstName.value, LastName: txtLastName.value, Email: txtEmail.value, Summary: txtSummary.value, Description: txtDescription.value})">Update</button>
+      <button type="submit" class="btn btn-default" [disabled]="submitted" (click)="onCancelUpdate()">Cancel</button>
+    </div>
+  </div>
+</form>
+
+<div>
+<div class="form-row" id="successAlert" *ngIf="alertPointer == 1">
+  <div class="form-group col-md-12 alert alert-success">
+    <strong>Success!</strong> User updated successfully!
+  </div>
+</div>
+
+<div class="form-row" id="errorAlert" *ngIf="alertPointer == 2">
+    <div class="form-group col-md-12 alert alert-danger">
+      <strong>Error!</strong> Something went wrong!
+    </div>
+  </div>
+</div>
